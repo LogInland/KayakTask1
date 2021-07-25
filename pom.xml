@@ -79,6 +79,7 @@
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
           <skip>${skipTests}</skip>
         </configuration>
+        <!---
         <executions>
           <execution>
             <id>checkstyle</id>
@@ -88,6 +89,7 @@
             </goals>
           </execution>
         </executions>
+        -->
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -112,6 +114,7 @@
               <goal>report</goal>
             </goals>
           </execution>
+          <!--
           <execution>
             <id>check-unit-test</id>
             <phase>test</phase>
@@ -159,6 +162,7 @@
               </rules>
             </configuration>
           </execution>
+        -->
         </executions>
       </plugin>
     </plugins>

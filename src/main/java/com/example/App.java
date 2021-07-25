@@ -1,10 +1,5 @@
 package com.example;
 
-import java.util.Arrays;
-
-
-import javax.lang.model.util.ElementScanner14;
-
 /**
  * Hello world!
  */
@@ -19,18 +14,25 @@ public final class App {
     public static void main(String[] args) {
 
         NumberCalculator calculator = new NumberCalculator();
+        Printer printer = new Printer();
 
-        int[] numbersArr = calculator.parseArguments(args);
-        int[][] freqArr = calculator.freaquency(numbersArr);
+        int[] numbers = calculator.parseArguments(args);
+        int[][] freqArr = calculator.freaquency(numbers);
+        FrequencyArray frequencyArray = new FrequencyArray(calculator.getMaxFreaquency(),
+        freqArr[0][0], freqArr);
 
-        Printer.printBasic(freqArr);
+        printer.printFrequency(frequencyArray.getFrequencyArray());
+        printer.printNumbers(frequencyArray.getFrequencyArray());
+       
+        frequencyArray.setFrequencyArray(calculator.getFilledArray(frequencyArray.getFrequencyArray()));
+        System.out.println();
+        Canvas canvas = new Canvas();
+        int vertexI = frequencyArray.getLenght();
+        int vertexJ = frequencyArray.getMaxFreaquency();
 
-
-        Matrix matrix = new Matrix(freqArr[0].length, calculator.getMaxFreaquency());
-        matrix.addNumbersToMatrix(freqArr);
-        matrix.printMatrix();
-       /*  for (int i = 0; i < freqArr[0].length; i++) {
-            System.out.println(freqArr[0][i] + " " + freqArr[1][i]);
-        } */
+        canvas.fillCanvas(vertexI, vertexJ, frequencyArray.getFrequencyArray());
+        printer.printGraph(vertexI, vertexJ, canvas.getCanvas());
+        printer.printXaxis(frequencyArray.getFirstElement(), frequencyArray.getLenght());
     }
+
 }
