@@ -38,4 +38,11 @@ class AppTest {
         actualResult = calc.parseArguments(arguments);
         assertArrayEquals(expectedResult, actualResult);
     }
+
+    @Test
+    void hackTest() {
+        String expected = "%-4s";
+        String actual = String.format("%%-%ds", 4);
+        assertEquals(expected, actual);
+    }
 }

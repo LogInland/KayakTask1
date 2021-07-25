@@ -31,41 +31,8 @@ public class NumberCalculator {
 
     public int getMaxFreaquency() {
         return maxFreq;
-    }   
-
-    public int getNumbersCount(int[][] numberArr) {
-        int ret = 0;
-        if(numberArr[0].length != 0) {
-            int indexA = numberArr[0][0];
-            ret = numberArr[0].length;
-            for (int i = 0; i < numberArr[0].length; i++) {
-                while (indexA != numberArr[0][i]) {
-                    indexA++;
-                    ret++;
-                }
-                indexA++;
-            }
-        }
-        return ret;
     }
 
-    public int[][] getFilledArray(int[][] freqArr) {
-		int[][] ret = new int[2][getNumbersCount(freqArr)];
-		if(freqArr[0].length != 0) {
-			int indexA = freqArr[0][0];
-			int indexRet = 0;
-			for (int i = 0; i < freqArr[0].length; i++) {
-				while (indexA != freqArr[0][i]) {
-					ret[0][indexRet++] = indexA;
-					indexA++;
-				}
-				ret[1][indexRet] = freqArr[1][i];
-				ret[0][indexRet++] = freqArr[0][i];
-				indexA++;
-			}
-		}
-		return ret;
-	}
 
     private void addNumber(SortedMap<Integer, Integer> map, int index) {
         if(map.containsKey(index)) {
