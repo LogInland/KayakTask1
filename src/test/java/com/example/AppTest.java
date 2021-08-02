@@ -1,6 +1,6 @@
 package com.example;
 
-import org.eclipse.birt.data.aggregation.calculator.NumberCalculator;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -30,7 +30,7 @@ class AppTest {
 
      @Test
     void testParseArguments() {
-        String[] arguments = {"1", "2", "Bad", "4", "a[", "-"};
+        String[] arguments = {"1", "2", "Word", "4", "a[", "-"};
         int[] expectedResult = {1, 2, 4};
         int[] actualResult;
 

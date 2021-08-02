@@ -16,10 +16,13 @@ public final class App {
         NumberCalculator calculator = new NumberCalculator();
 
         int[] numbers = calculator.parseArguments(args);
-        int[][] freqArr = calculator.freaquency(numbers);
-        Printer.printHistogram(freqArr);
-        System.out.println();
-        Printer.printFrequencyArr(freqArr);
+
+        if (numbers.length > 0) {
+            int[][] freqArr = calculator.freaquency(numbers);
+            Printer.printHistogram(freqArr);
+            System.out.println();
+            Printer.printFrequencyArr(freqArr);
+        }
     }
 
 }
